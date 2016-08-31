@@ -1,0 +1,6 @@
+name: SakiPlugin
+main: com.edasaki.SakiPlugin
+version: 1.0
+description: Custom Minecraft plugin template allowing easy and organizedd implementation of commands and listeners.
+author: Edasaki
+commands:
