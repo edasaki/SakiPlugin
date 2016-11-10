@@ -1,6 +1,7 @@
 package com.edasaki;
 
 import java.io.File;
+import java.util.HashMap;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,24 @@ public final class SakiPlugin extends JavaPlugin {
     }
 
     public static SakiPlugin plugin;
+
+    private HashMap<Class<? extends AbstractManager>, AbstractManager> instances;
+
+    protected void registerManager(Class<? extends AbstractManager> clazz, AbstractManager instance) throws Exception {
+        if (instances.containsKey(clazz))
+            throw new Exception("Duplicate manager " + clazz + " " + instance);
+        instances.put(clazz, instance);
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> T getInstance(Class<T> clazz) {
+        AbstractManager instance = instances.get(clazz);
+        if (instance == null)
+            return null;
+        if (clazz.isInstance(instance))
+            return (T) instance;
+        return null;
+    }
 
     @Override
     public void onEnable() {

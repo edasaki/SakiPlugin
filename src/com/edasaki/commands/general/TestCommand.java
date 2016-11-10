@@ -3,9 +3,9 @@ package com.edasaki.commands.general;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.edasaki.commands.ACommand;
+import com.edasaki.commands.AbstractCommand;
 
-public class TestCommand extends ACommand {
+public class TestCommand extends AbstractCommand {
 
     public TestCommand(String... commandNames) {
         super(commandNames);

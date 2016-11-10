@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 
 import com.edasaki.SakiPlugin;
 
-public abstract class ACommand extends Command implements CommandExecutor, Listener {
+public abstract class AbstractCommand extends Command implements CommandExecutor, Listener {
 
     public static SakiPlugin plugin;
 
@@ -55,7 +55,7 @@ public abstract class ACommand extends Command implements CommandExecutor, Liste
      */
     public abstract void executeConsole(CommandSender sender, String[] args);
 
-    public ACommand(String... commandNames) {
+    public AbstractCommand(String... commandNames) {
         super(commandNames[0]);
         if (commandNames.length > 1)
             for (int k = 1; k < commandNames.length; k++)

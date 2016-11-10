@@ -2,10 +2,10 @@ package com.edasaki;
 
 import org.bukkit.event.Listener;
 
-public abstract class Manager implements Listener {
+public abstract class AbstractManager implements Listener {
     public static SakiPlugin plugin;
 
-    public Manager(SakiPlugin plugin) {
+    public AbstractManager(SakiPlugin plugin) {
         try {
             load(plugin);
         } catch (Exception e) {
@@ -15,7 +15,7 @@ public abstract class Manager implements Listener {
     }
 
     public void load(SakiPlugin plugin) {
-        Manager.plugin = plugin;
+        AbstractManager.plugin = plugin;
         try {
             plugin.getServer().getPluginManager().registerEvents(this, plugin);
             initialize();

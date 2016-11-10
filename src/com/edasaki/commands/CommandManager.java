@@ -9,11 +9,11 @@ import org.bukkit.craftbukkit.v1_10_R1.CraftServer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-import com.edasaki.Manager;
+import com.edasaki.AbstractManager;
 import com.edasaki.SakiPlugin;
 import com.edasaki.commands.general.TestCommand;
 
-public class CommandManager extends Manager {
+public class CommandManager extends AbstractManager {
 
     public static CommandMap cmap = null;
 
@@ -43,13 +43,13 @@ public class CommandManager extends Manager {
             plugin.getServer().shutdown();
             return;
         }
-        ACommand.plugin = plugin;
+        AbstractCommand.plugin = plugin;
 
         // Member
         register(new TestCommand("testcommand"));
     }
 
-    private void register(ACommand command) {
+    private void register(AbstractCommand command) {
         cmap.register("", command);
         plugin.getServer().getPluginManager().registerEvents(command, plugin);
     }
